@@ -1,12 +1,13 @@
 package main
 
 import (
+	"bing-wallpaper-spider/src/main/golang/src/wallpaper"
 	"flag"
 	"fmt"
 	"time"
 )
 
-func main() {
+func flagParse() {
 	// 定义命令行参数
 	dailyFlag := flag.Bool("d", false, "Download today's wallpaper")     // -d 参数
 	startDateFlag := flag.String("start", "", "Start date (YYYY-MM-DD)") // -h 参数的开始日期
@@ -30,6 +31,10 @@ func main() {
 		// 调用下载指定日期区间壁纸的函数
 		downloadWallpaper(*startDateFlag, *endDateFlag)
 	}
+}
+func main() {
+	w := &wallpaper.WallPaper{}
+	w.Spider()
 }
 
 // 模拟下载壁纸的函数
