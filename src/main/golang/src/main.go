@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bing-wallpaper-spider/src/main/golang/src/wallpaper"
+	"bing-wallpaper-spider/src/main/golang/src/WallPaper"
 	"flag"
 	"fmt"
 	"time"
@@ -9,7 +9,7 @@ import (
 
 func flagParse() {
 	// 定义命令行参数
-	dailyFlag := flag.Bool("d", false, "Download today's wallpaper")     // -d 参数
+	dailyFlag := flag.Bool("d", false, "Download today's WallPaper")     // -d 参数
 	startDateFlag := flag.String("start", "", "Start date (YYYY-MM-DD)") // -h 参数的开始日期
 	endDateFlag := flag.String("end", "", "End date (YYYY-MM-DD)")       // -h 参数的结束日期
 
@@ -20,7 +20,7 @@ func flagParse() {
 	if *dailyFlag {
 		// 获取今天的日期
 		today := time.Now().Format("2006-01-02")
-		fmt.Printf("Downloading today's wallpaper: %s\n", today)
+		fmt.Printf("Downloading today's WallPaper: %s\n", today)
 		// 调用下载当天壁纸的函数
 		downloadWallpaper(today, today)
 	}
@@ -33,7 +33,7 @@ func flagParse() {
 	}
 }
 func main() {
-	w := &wallpaper.WallPaper{}
+	w := &WallPaper.WallPaper{}
 	w.Spider()
 }
 
